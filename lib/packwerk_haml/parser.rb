@@ -45,20 +45,5 @@ module PackwerkHaml
         file_path: file_path,
       )
     end
-
-    CODE_NODES = [:haml_comment, :silent_script].freeze
-
-    sig { params(node: T.nilable(::Haml::Parser::ParseNode), block: T.untyped).returns(T.untyped) }
-    def code_nodes(node, &block)
-      return enum_for(:code_nodes, node) unless block
-
-      return unless node.is_a?(::Haml::Parser::ParseNode)
-
-      yield node if CODE_NODES.include?(node.type)
-
-      node.children.each do |child|
-        code_nodes(child, &block)
-      end
-    end
   end
 end
