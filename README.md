@@ -1,6 +1,6 @@
 # Packwerk Haml
 
-Add haml support to haml
+Add haml support to [packwerk](https://github.com/Shopify/packwerk/)
 
 ## Installation
 
