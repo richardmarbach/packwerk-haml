@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "lib/packwerk/haml/version"
-
 Gem::Specification.new do |spec|
   spec.name = "packwerk-haml"
-  spec.version = Packwerk::Haml::VERSION
+  spec.version = "0.1.0"
   spec.authors = ["Richard Marbach"]
   spec.email = ["rmarbach@gmail.com"]
 
@@ -23,7 +21,7 @@ Gem::Specification.new do |spec|
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = Dir.chdir(__dir__) do
-    `git ls-files -z`.split("\x0").reject do |f|
+    %x(git ls-files -z).split("\x0").reject do |f|
       (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|circleci)|appveyor)})
     end
   end
@@ -31,9 +29,10 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
+  # For Ruby parsing
+  spec.add_dependency("ast")
+  spec.add_dependency("parser")
 
-  # For more information and examples about making a new gem, check out our
-  # guide at: https://bundler.io/guides/creating_gem.html
+  # For HAML parsing
+  spec.add_dependency("haml", "~>6.2")
 end

@@ -1,0 +1,19 @@
+!!!
+%html{lang: "en", "xml:lang" => "en", xmlns: "http://www.w3.org/1999/xhtml"}
+  %head
+    = instrumentation_header
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "content-type"}
+    %meta{content: "chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta{content: "no", "http-equiv" => "imagetoolbar"}
+    = tag :meta, name: "referrer", content: "never"
+    %title= @title || "My Test Site"
+    = stylesheet_link_tag MyNamespace::MY_CONSTANT, integrity: true, crossorigin: "anonymous"
+    = javascript_include_tag "jquery", integrity: true, crossorigin: "anonymous"
+    = csrf_meta_tag
+    = yield :header
+  %body
+    %ul
+      - @things.each do |thing|
+        %li= thing
+    #body
+      = yield :body
