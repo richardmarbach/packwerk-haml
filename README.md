@@ -1,5 +1,9 @@
 # Packwerk Haml
 
+> [!WARNING]
+> This gem currently depends on a development branch for packwerk !!!
+> Once https://github.com/Shopify/packwerk/pull/375 is merged and released, can this gem be safely used.
+
 Add haml support to [packwerk](https://github.com/Shopify/packwerk/)
 
 ## Installation
