@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require_relative "lib/packwerk_haml/version"
+
 Gem::Specification.new do |spec|
   spec.name = "packwerk-haml"
-  spec.version = "0.1.0"
+  spec.version = PackwerkHaml::VERSION
   spec.authors = ["Richard Marbach"]
   spec.email = ["rmarbach@gmail.com"]
 
