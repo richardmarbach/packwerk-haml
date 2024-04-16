@@ -18,7 +18,14 @@ gem "packwerk-haml"
 
 ```yml
 require:
-  - packwerk-haml
+  - packwerk_haml
+```
+
+3. Update `packwerk.yml` to include HAML files
+
+```yml
+include:
+- "**/*.{rb,rake,erb,haml}"
 ```
 
 ## Development
